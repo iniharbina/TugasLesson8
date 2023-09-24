@@ -109,6 +109,17 @@ class GameFragment : Fragment() {
         tempWord.shuffle()
         return String(tempWord)
     }
+
+
+
+    /*
+     * Re-initializes the data in the ViewModel and updates the views with the new data, to
+     * restart the game.
+     */
+    private fun restartGame() {
+        setErrorTextField(false)
+        updateNextWordOnScreen()
+    }
     private fun onSubmitWord() {
         val playerWord = binding.textInputEditText.text.toString()
 
@@ -122,15 +133,6 @@ class GameFragment : Fragment() {
         } else {
             setErrorTextField(true)
         }
-    }
-
-    /*
-     * Re-initializes the data in the ViewModel and updates the views with the new data, to
-     * restart the game.
-     */
-    private fun restartGame() {
-        setErrorTextField(false)
-        updateNextWordOnScreen()
     }
 
     /*
